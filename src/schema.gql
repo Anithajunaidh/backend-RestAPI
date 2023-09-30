@@ -1,0 +1,39 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type JwtTokenModel {
+  accessToken: String!
+  refreshToken: String!
+}
+
+type User {
+  _id: String!
+  fullname: String!
+  email: String!
+  password: String!
+  contactNo: String
+  role: String
+}
+
+type Query {
+  userLogin(payload: LoginUserDto!): JwtTokenModel!
+  getUsersList: [User!]!
+}
+
+input LoginUserDto {
+  email: String!
+  password: String!
+}
+
+type Mutation {
+  addUserDetails(payload: CreateUserDto!): User!
+}
+
+input CreateUserDto {
+  fullname: String!
+  email: String!
+  password: String!
+  contactNo: String
+  role: String
+}
